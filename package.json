@@ -1,0 +1,53 @@
+{
+  "name": "tel-analysis",
+  "author": "zz",
+  "main": "main.js",
+  "_moduleAliases": {
+    "@util": "src/util"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "mocha --opts ./mocha.opts",
+    "start-umi": "umi dev",
+    "build-umi": "umi build"
+  },
+  "dependencies": {
+    "exceljs": "^2.0.1",
+    "lodash": "^4.17.15",
+    "module-alias": "^2.2.2",
+    "antd": "^3.19.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.12",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "@types/react-test-renderer": "^16.0.3",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.4.0",
+    "eslint-config-umi": "^1.4.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "react-test-renderer": "^16.7.0",
+    "tslint": "^5.12.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0",
+    "umi": "^2.9.0",
+    "umi-plugin-react": "^1.8.0",
+    "umi-types": "^0.3.0",
+    "@testdeck/mocha": "^0.0.6",
+    "@types/exceljs": "^0.5.3",
+    "@types/lodash": "^4.14.141",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.11",
+    "electron": "^6.0.11",
+    "mocha": "^6.2.1",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  }
+}

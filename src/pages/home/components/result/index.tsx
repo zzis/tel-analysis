@@ -27,6 +27,9 @@ export default class Result extends React.Component<IResultProps, IResultState> 
           if (Object.values(record).every((r) => r !== 0)) {
             return <div className={styles.fullRecord}>{text}</div>;
           }
+          if (+text !== 0) {
+            return <div className={styles.notZero}>{text}</div>;
+          }
           return text;
         }
       };

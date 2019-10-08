@@ -1,19 +1,43 @@
 import React from 'react';
-import { Table } from 'antd';
+import { Table, Icon } from 'antd';
 
 import styles from './index.less';
-import { ICompareResult } from '@/util/compare';
+import { ICompareResult, compare } from '@/util/compare';
+import { IParsedCompareResult, ITelInfo } from '@/util/parseTel';
 
-interface IResultState {}
+interface IResultState {
+  compareResult: ICompareResult;
+}
 interface IResultProps {
   compareResult: ICompareResult;
+  parsedTelInfo: IParsedCompareResult;
 }
 
 export default class Result extends React.Component<IResultProps, IResultState> {
 
+  constructor(props: IResultProps, context?: any) {
+    super(props);
+    this.state = {
+      compareResult: {}
+    };
+  }
+
+  public deleteResultItem(record: any) {
+    const { compareResult } = this.state;
+    delete compareResult[record.tel];
+    this.setState({
+      compareResult: {...compareResult}
+    });
+  }
+
+  public static getDerivedStateFromProps(props: IResultProps) {
+    return {
+      compareResult: props.compareResult
+    };
+  }
+
   public render() {
-    console.log('props', this.props.compareResult);
-    const { compareResult } = this.props;
+    const { compareResult } = this.state;
     if (!Object.keys(compareResult).length) {
       return <div className={styles.noResult}>无结果或无匹配号码</div>;
     }
@@ -39,7 +63,12 @@ export default class Result extends React.Component<IResultProps, IResultState> 
       dataIndex: 'tel',
       key: 'tel',
       sorter: undefined,
-      render: undefined
+      render: (text: string, record: any, index: number) => {
+        return <div>
+          <Icon type='delete' className={styles.deleteIcon} onClick={this.deleteResultItem.bind(this, record)}/>
+          {text} {this.props.parsedTelInfo[text] ? this.props.parsedTelInfo[text].location : ''}
+        </div>;
+      }
     });
     const dataSource = [];
     const tels = Object.keys(compareResult);
@@ -51,6 +80,10 @@ export default class Result extends React.Component<IResultProps, IResultState> 
       });
     }
     return <>
+      <div className={styles.resultCount}>
+        共同号码总条数：
+        {dataSource.length}
+      </div>
       <Table
         className={styles.resultTable}
         columns={columns}

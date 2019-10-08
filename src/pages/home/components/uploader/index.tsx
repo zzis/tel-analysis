@@ -37,8 +37,9 @@ export default class Uploader extends React.Component<IUploaderProps, IUploaderS
       },
       onRemove: (file: any) => {
         const { fileList } = this.state;
+        fileList.splice(fileList.indexOf(file.originFileObj.path), 1);
         this.setState({
-          fileList: [...fileList.splice(fileList.indexOf(file.originFileObj.path), 1)]
+          fileList: [...fileList]
         });
       }
     };

@@ -5,10 +5,12 @@ import Result from './components/result';
 
 import { compare, ICompareResult } from '@/util/compare';
 import { getAccountsFromFiles } from '@/util/readExcel';
+import { parseTel, IParsedCompareResult } from '@/util/parseTel';
 
 interface IHomeState {
   compareResult: ICompareResult;
   processing: boolean;
+  parsedTelInfo: IParsedCompareResult;
 }
 
 interface IHomeProps {}
@@ -36,8 +38,10 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
     try {
       const accounts = await getAccountsFromFiles(fileList);
       const result = compare(accounts);
+      const parsedTelInfo = await parseTel(result);
       this.setState({
-        compareResult: result
+        compareResult: result,
+        parsedTelInfo
       });
     } catch (error) {
       message.error(error && error.message, 10);
@@ -56,6 +60,7 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
       />
       <Result
         compareResult={this.state.compareResult}
+        parsedTelInfo={this.state.parsedTelInfo}
       />
     </>;
   }

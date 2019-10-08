@@ -27,7 +27,8 @@
     "jsx-wrap-multiline": false,
     "quotemark": [true, "single"],
     "prefer-for-of": false,
-    "jsx-no-multiline-js": false
+    "jsx-no-multiline-js": false,
+    "object-literal-key-quotes": false
   },
   "rulesDirectory": [
     "./src",

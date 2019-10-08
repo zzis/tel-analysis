@@ -21,6 +21,12 @@ const config: IConfig =  {
   ],
   chainWebpack(config, {webpack}) {
     config.target('electron-renderer');
+  },
+  proxy: {
+    "/dianhua_api": {
+      "target": "http://mobsec-dianhua.baidu.com/",
+      "changeOrigin": true
+    }
   }
 }
 

@@ -1543,6 +1543,13 @@
   resolved "https://registry.npm.taobao.org/@types/mocha/download/@types/mocha-5.2.7.tgz?cache=0&sync_timestamp=1567557900278&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fmocha%2Fdownload%2F%40types%2Fmocha-5.2.7.tgz#315d570ccb56c53452ff8638738df60726d5b6ea"
   integrity sha1-MV1XDMtWxTRS/4Y4c432BybVtuo=
 
+"@types/node-fetch@^2.5.2":
+  version "2.5.2"
+  resolved "https://registry.npm.taobao.org/@types/node-fetch/download/@types/node-fetch-2.5.2.tgz#76906dea5b3d6901e50e63e15249c9bcd6e9676e"
+  integrity sha1-dpBt6ls9aQHlDmPhUknJvNbpZ24=
+  dependencies:
+    "@types/node" "*"
+
 "@types/node@*":
   version "12.7.8"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.7.8.tgz?cache=0&sync_timestamp=1569453199308&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-12.7.8.tgz#cb1bf6800238898bc2ff6ffa5702c3cadd350708"
